@@ -1,0 +1,31 @@
+#!/bin/bash
+screen -R mcserver -X stuff "say backing up of Minecraft saving temporarily disabled...
+"
+screen -R mcserver -X stuff "save-off
+"
+screen -R mcserver -X stuff "save-all
+"
+
+# add sleep
+sleep 3
+
+# navigate to backup folder
+cd ~/mcbackups
+rm -rf minecraft-day-7.7z
+
+# apply rolling file update
+mv minecraft-day-6.7z minecraft-day-7.7z
+mv minecraft-day-5.7z minecraft-day-6.7z
+mv minecraft-day-4.7z minecraft-day-5.7z
+mv minecraft-day-3.7z minecraft-day-4.7z
+mv minecraft-day-2.7z minecraft-day-3.7z
+mv minecraft-day-1.7z minecraft-day-2.7z
+
+# archive the folder
+7z a minecraft-day-1.7z ~/mcserver/*
+
+# enable saving
+screen -R mcserver -X stuff "save-on
+"
+screen -R mcserver -X stuff "say Backup complete. World now saving
+"
