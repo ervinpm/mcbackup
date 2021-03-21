@@ -12,3 +12,10 @@ Add the following lines to do backups every 1:07 in the morning
 7 1 * * * ~./mcbackup
 ```
 
+## Restoring a world
+
+This assumes that you have the mcserver in the home folder
+
+```shell
+$ ./mcrestore.sh
+```
