@@ -20,6 +20,6 @@ fi
 
 echo "Restoring backup minecraft-day-$BACKUP_NUMBER.7z..."
 7z x -oextracted minecraft-day-$BACKUP_NUMBER.7z
-mv extracted/world ~/mcserver/world
+mv ~/mcbackups/extracted/world ~/mcserver/world
 
 echo "Restore complete!"
